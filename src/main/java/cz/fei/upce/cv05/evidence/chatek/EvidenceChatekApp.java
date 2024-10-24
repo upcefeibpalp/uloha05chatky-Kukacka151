@@ -4,28 +4,26 @@ import java.util.Scanner;
 
 public class EvidenceChatekApp {
 
-    public static void main(String[] args) {
-        // Konstanty pro definovani jednotlivych operaci (pouze pro cisty kod)
-        final int KONEC_PROGRAMU = 0;
-        final int VYPIS_CHATEK = 1;
-        final int VYPIS_KONKRETNI_CHATKU = 2;
-        final int PRIDANI_NAVSTEVNIKU = 3;
-        final int ODEBRANI_NAVSTEVNIKU = 4;
-        final int CELKOVA_OBSAZENOST = 5;
-        final int VYPIS_PRAZDNE_CHATKY = 6;
-
-        final int VELIKOST_KEMPU = 5;
-        final int MAX_VELIKOST_CHATKY = 10;
-
-        Scanner scanner = new Scanner(System.in);
-
-        // Definovani pole podle velikosti kempu (poctu chatek)
-        int[] chatky = new int[VELIKOST_KEMPU];
-        int operace;
-
-        do {
-            System.out.println("""
-                    MENU:
+    // Konstanty pro definovani jednotlivych operaci (pouze pro cisty kod)
+        static final int KONEC_PROGRAMU = 0;
+        static final int VYPIS_CHATEK = 1;
+        static final int VYPIS_KONKRETNI_CHATKU = 2;
+        static final int PRIDANI_NAVSTEVNIKU = 3;
+        static final int ODEBRANI_NAVSTEVNIKU = 4;
+        static final int CELKOVA_OBSAZENOST = 5;
+        static final int VYPIS_PRAZDNE_CHATKY = 6;
+    
+        static final int VELIKOST_KEMPU = 10;
+        static final int MAX_VELIKOST_CHATKY = 4;
+        
+        
+         // Definovani pole podle velikosti kempu (poctu chatek)
+        static int[] chatky = new int[VELIKOST_KEMPU];
+        static Scanner scanner = new Scanner(System.in);
+        static String menu """
+                           
+        
+                 MENU:
                                         
                     1 - vypsani vsech chatek
                     2 - vypsani konkretni chatky
@@ -35,6 +33,14 @@ public class EvidenceChatekApp {
                     6 - Vypis prazdne chatky
                     0 - Konec programu
                     """);
+        
+    public static void main(String[] args) {
+       
+        int operace;
+
+        do {
+            System.out.println(""
+                   
 
             // Ziskani operace od uzivatele
             System.out.print("Zadej volbu: ");
@@ -43,10 +49,7 @@ public class EvidenceChatekApp {
             switch (operace) {
                 case VYPIS_CHATEK -> {
 
-                    // Projdi cele pole od <0, VELIKOST) a vypis kazdy index
-                    for (int i = 0; i < chatky.length; i++) {
-                        System.out.println("Chatka [" + (i + 1) + "] = " + chatky[i]);
-                    }
+                    Vypis_chatek();
                 }
 
                 case VYPIS_KONKRETNI_CHATKU -> {
@@ -119,5 +122,12 @@ public class EvidenceChatekApp {
                 }
             }
         } while (operace != 0);
+    }
+
+    private static void Vypis_chatek() {
+        // Projdi cele pole od <0, VELIKOST) a vypis kazdy index
+        for (int i = 0; i < chatky.length; i++) {
+            System.out.println("Chatka [" + (i + 1) + "] = " + chatky[i]);
+        }
     }
 }

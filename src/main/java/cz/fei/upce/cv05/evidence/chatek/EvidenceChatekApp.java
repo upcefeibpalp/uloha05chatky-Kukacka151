@@ -69,6 +69,7 @@ public class EvidenceChatekApp {
                 }
 
                 case PRIDANI_NAVSTEVNIKU -> {
+                    if
 
                     // Ziskani cisla chatky od uzivatele
                     System.out.print("Zadej cislo chatky: ");
